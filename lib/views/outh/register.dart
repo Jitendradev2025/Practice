@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:thread_clone/controllers/outhcontroller.dart';
 import 'package:thread_clone/routes/routes_names.dart';
 import 'package:thread_clone/widgets/auth_input.dart';
 class Register extends StatefulWidget {
@@ -12,6 +13,8 @@ class Register extends StatefulWidget {
   @override
   State<Register> createState() => _LoginState();
 }
+
+// 6FWn0eXmHq6tQpWx
 
 class _LoginState extends State<Register> {
   final GlobalKey<FormState> _Form = GlobalKey<FormState>();
@@ -23,11 +26,12 @@ class _LoginState extends State<Register> {
    TextEditingController(text: "");
    final TextEditingController cPasswordcontroller =
    TextEditingController(text: "");
+   final Outhcontroller controller = Get.put(Outhcontroller());
 
    // * Sumbit method
    void Sumbit () {
     if(_Form.currentState!.validate()){
-      print("All good");
+      controller.register(namecontroller.text, emailcontroller.text, Passwordcontroller.text);
     }
    }
    
